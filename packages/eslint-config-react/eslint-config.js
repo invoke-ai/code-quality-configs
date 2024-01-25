@@ -29,6 +29,7 @@ module.exports = {
     'unused-imports',
     'simple-import-sort',
     'i18next',
+    'react-refresh',
   ],
   root: true,
   rules: {
@@ -42,7 +43,8 @@ module.exports = {
     'react/jsx-curly-brace-presence': ['error', { props: 'never', children: 'never' }],
     // 🎵 The Rules of Hooks 🎵 https://legacy.reactjs.org/docs/hooks-rules.html
     'react-hooks/exhaustive-deps': 'error',
-
+    // https://github.com/ArnaudBarre/eslint-plugin-react-refresh
+    'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
     /**
      * JavaScript
      */
