@@ -125,6 +125,14 @@ module.exports = {
     // https://typescript-eslint.io/rules/no-import-type-side-effects/
     '@typescript-eslint/no-import-type-side-effects': 'error',
 
+    // https://typescript-eslint.io/rules/consistent-type-assertions/
+    '@typescript-eslint/consistent-type-assertions': [
+      'warn',
+      {
+        assertionStyle: 'never',
+      },
+    ],
+
     /**
      * Translations
      */
