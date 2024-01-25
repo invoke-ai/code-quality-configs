@@ -1,5 +1,5 @@
 {
-  "name": "prettier-config-react",
+  "name": "@invoke-ai/prettier-config-react",
   "version": "0.0.1",
   "description": "prettier config for react",
   "main": "./prettier-config.json",
