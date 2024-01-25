@@ -7,7 +7,6 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
-    'plugin:prettier/recommended',
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
     'plugin:react/jsx-runtime',
@@ -130,20 +129,6 @@ module.exports = {
 
     // https://github.com/edvardchen/eslint-plugin-i18next/blob/HEAD/docs/rules/no-literal-string.md
     'i18next/no-literal-string': 'error',
-    /**
-     * Prettier
-     */
-    'prettier/prettier': [
-      'error',
-      {
-        trailingComma: 'es5',
-        printWidth: 120,
-        tabWidth: 2,
-        semi: true,
-        singleQuote: true,
-        endOfLine: 'auto',
-      },
-    ],
   },
   overrides: [
     /**
