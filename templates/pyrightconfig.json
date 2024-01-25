@@ -1,0 +1,43 @@
+// https://microsoft.github.io/pyright/#/configuration
+
+/**
+ * This configuration starts from strict, demoting the strict errors to warnings.
+ *
+ * It totally disables the missing type stubs rule, as it is way too noisy.
+ */
+
+{
+  // Start from strict mode
+  "typeCheckingMode": "strict",
+  // This errors whenever an import is missing a type stub file - way too noisy
+  "reportMissingTypeStubs": "none",
+  // These are the rest of the rules enabled by strict mode - enable them @ warning
+  "reportConstantRedefinition": "warning",
+  "reportDeprecated": "warning",
+  "reportDuplicateImport": "warning",
+  "reportIncompleteStub": "warning",
+  "reportInconsistentConstructor": "warning",
+  "reportInvalidStubStatement": "warning",
+  "reportMatchNotExhaustive": "warning",
+  "reportMissingParameterType": "warning",
+  "reportMissingTypeArgument": "warning",
+  "reportPrivateUsage": "warning",
+  "reportTypeCommentUsage": "warning",
+  "reportUnknownArgumentType": "warning",
+  "reportUnknownLambdaType": "warning",
+  "reportUnknownMemberType": "warning",
+  "reportUnknownParameterType": "warning",
+  "reportUnknownVariableType": "warning",
+  "reportUnnecessaryCast": "warning",
+  "reportUnnecessaryComparison": "warning",
+  "reportUnnecessaryContains": "warning",
+  "reportUnnecessaryIsInstance": "warning",
+  "reportUnusedClass": "warning",
+  "reportUnusedImport": "warning",
+  "reportUnusedFunction": "warning",
+  "reportUnusedVariable": "warning",
+  "reportUntypedBaseClass": "warning",
+  "reportUntypedClassDecorator": "warning",
+  "reportUntypedFunctionDecorator": "warning",
+  "reportUntypedNamedTuple": "warning"
+}

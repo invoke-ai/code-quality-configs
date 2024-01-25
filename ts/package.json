@@ -1,0 +1,7 @@
+{
+  "name": "ts-codequality-configs",
+  "description": "Code quality configs for TypeScript projects",
+  "scripts": {
+    "publish": "pnpm publish --access public"
+  }
+}

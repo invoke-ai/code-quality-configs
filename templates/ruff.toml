@@ -1,0 +1,19 @@
+# https://docs.astral.sh/ruff/configuration/
+
+line-length = 120
+ignore = [
+  "E501", # https://docs.astral.sh/ruff/rules/line-too-long/
+  "C901", # https://docs.astral.sh/ruff/rules/complex-structure/
+  "B008", # https://docs.astral.sh/ruff/rules/function-call-in-default-argument/
+  "B904", # https://docs.astral.sh/ruff/rules/raise-without-from-inside-except/
+]
+select = ["B", "C", "E", "W", "F", "I"]
+exclude = [
+  ".git",
+  "__pycache__",
+  "build",
+  "dist",
+  ".venv*",
+  ".mypy_cache",
+  ".pytest_cache",
+]

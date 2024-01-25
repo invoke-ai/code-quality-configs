@@ -1,0 +1,11 @@
+{
+  "name": "prettier-config-react",
+  "version": "0.0.1",
+  "description": "prettier config for react",
+  "main": "./prettier-config.json",
+  "author": "Invoke",
+  "license": "Apache-2.0",
+  "peerDependencies": {
+    "prettier": "^3.2.4"
+  }
+}
