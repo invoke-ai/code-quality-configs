@@ -1,6 +1,7 @@
 name: Publish package
 
 on:
+  workflow_dispatch:
   push:
     tags:
       - 'eslint-config-react@v*.*.*'
@@ -12,6 +13,13 @@ permissions:
 
 jobs:
   publish:
+    strategy:
+      matrix:
+        registry:
+          - url: https://registry.npmjs.org
+            token_secret: NPM_TOKEN
+          - url: https://npm.pkg.github.com
+            token_secret: GITHUB_TOKEN
     runs-on: ubuntu-latest
     steps:
       - id: get-package
@@ -28,18 +36,26 @@ jobs:
           run_install: false
 
       - name: Install Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version-file: '.nvmrc'
           cache: pnpm
+          registry-url: ${{ matrix.registry.url }}
+          scope: '@invoke-ai'
 
-      - name: Install dependencies
-        working-directory: 'packages/${{steps.get-package.outputs.package}}'
-        run: pnpm install --frozen-lockfile
+      - name: Version bump
+        # only if manual workflow dispatch and not on a tag
+        if: github.event_name == 'workflow_dispatch' && !startsWith(github.ref, 'refs/tags/')
+        run: npm version prepatch --preid=$(git rev-parse --short HEAD) --no-git-tag-version
 
       - name: Publish
         shell: bash
-        run: pnpm publish --access public --no-git-checks
+        run: |
+          # manual workflow dispatches are tagged as pre-release - all releases should go through proper tagging process
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            FLAGS="--tag pre"
+          fi
+          pnpm publish --access public --no-git-checks $FLAGS
         working-directory: 'packages/${{steps.get-package.outputs.package}}'
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets[matrix.registry.token_secret] }}
