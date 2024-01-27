@@ -5,9 +5,6 @@
   "main": "prettier-config.json",
   "author": "Invoke",
   "license": "Apache-2.0",
-  "devDependencies": {
-    "prettier": "^3.2.4"
-  },
   "peerDependencies": {
     "prettier": "^3.2.4"
   },
