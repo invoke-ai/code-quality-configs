@@ -2,6 +2,15 @@ name: Publish package
 
 on:
   workflow_dispatch:
+    inputs:
+      package:
+        type: choice
+        required: true
+        description: 'Package to publish'
+        default: 'eslint-config-react'
+        options:
+          - eslint-config-react
+          - prettier-config-react
   push:
     tags:
       - 'eslint-config-react@v*.*.*'
@@ -23,9 +32,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - id: get-package
+        shell: bash
         run: |
-          package=$(echo ${{github.ref_name}} | cut -d@ -f1)
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            # manual dispatches get package from the input
+            package=${{ github.event.inputs.package }}
+          else
+            # else get the package from the tag
+            package=$(echo ${{github.ref_name}} | cut -d@ -f1)
+          fi
           echo "package=$package" >> $GITHUB_OUTPUT
+
       - name: Checkout
         uses: actions/checkout@v4
 
