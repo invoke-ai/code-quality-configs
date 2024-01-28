@@ -36,6 +36,7 @@ module.exports = {
     /**
      * React
      */
+
     // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md
     // Allow bind as more explicit way to pass arguments to callbacks in JSX - you should have to work for it.
     'react/jsx-no-bind': ['error', { allowBind: true }],
@@ -45,6 +46,7 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'error',
     // https://github.com/ArnaudBarre/eslint-plugin-react-refresh
     'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+
     /**
      * JavaScript
      */
@@ -61,6 +63,28 @@ module.exports = {
     radix: 'error',
     // https://eslint.org/docs/latest/rules/space-before-blocks
     'space-before-blocks': 'error',
+    // https://eslint.org/docs/latest/rules/eqeqeq
+    eqeqeq: 'error',
+    // https://eslint.org/docs/latest/rules/one-var
+    'one-var': ['error', 'never'],
+    // https://eslint.org/docs/latest/rules/no-eval
+    'no-eval': 'error',
+    // https://eslint.org/docs/latest/rules/no-extend-native
+    'no-extend-native': 'error',
+    // https://eslint.org/docs/latest/rules/no-implied-eval
+    'no-implied-eval': 'error',
+    // https://eslint.org/docs/latest/rules/no-label-var
+    'no-label-var': 'error',
+    // https://eslint.org/docs/latest/rules/no-return-assign
+    'no-return-assign': 'error',
+    // https://eslint.org/docs/latest/rules/no-sequences
+    'no-sequences': 'error',
+    // https://eslint.org/docs/latest/rules/no-template-curly-in-string
+    'no-template-curly-in-string': 'error',
+    // https://eslint.org/docs/latest/rules/no-throw-literal
+    'no-throw-literal': 'error',
+    // https://eslint.org/docs/latest/rules/no-unmodified-loop-condition
+    'no-unmodified-loop-condition': 'error',
 
     /**
      * Imports
