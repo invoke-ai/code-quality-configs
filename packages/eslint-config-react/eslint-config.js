@@ -28,7 +28,6 @@ module.exports = {
     'eslint-plugin-import',
     'unused-imports',
     'simple-import-sort',
-    'i18next',
     'react-refresh',
   ],
   root: true,
@@ -156,26 +155,7 @@ module.exports = {
         assertionStyle: 'never',
       },
     ],
-
-    /**
-     * Translations
-     */
-
-    // https://github.com/edvardchen/eslint-plugin-i18next/blob/HEAD/docs/rules/no-literal-string.md
-    'i18next/no-literal-string': 'error',
   },
-  overrides: [
-    /**
-     * Overrides for stories
-     */
-    {
-      files: ['*.stories.tsx'],
-      rules: {
-        // We may not have i18n available in stories.
-        'i18next/no-literal-string': 'off',
-      },
-    },
-  ],
   settings: {
     react: {
       version: 'detect',
